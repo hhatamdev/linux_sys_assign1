@@ -18,5 +18,13 @@ void test_validate_my_username()
      * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
      * config file and my_username() functions are setup properly
      */
-    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+    const char * my_usr_name = my_username();
+    char * my_usr_name_from_conf = malloc_username_from_conf_file();
+    
+    TEST_ASSERT_TRUE_MESSAGE(strcmp(my_usr_name, my_usr_name_from_conf) == 0,"AESD students, please fix me!");
+
+    if(NULL != my_usr_name_from_conf)
+    {
+        free(my_usr_name_from_conf);
+    }
 }
